@@ -6,6 +6,7 @@ import numpy as np
 import random
 import math
 import time
+from tqdm import tqdm
 
 import torch
 import torch.nn as nn
@@ -789,7 +790,7 @@ class Seq2SeqAgent(BaseAgent):
         self.critic.train()
 
         self.losses = []
-        for iter in range(1, n_iters + 1):
+        for iter in tqdm(range(1, n_iters + 1)):
 
             self.encoder_optimizer.zero_grad()
             self.decoder_optimizer.zero_grad()

@@ -357,7 +357,7 @@ def train_val():
 
     featurized_scans = set([key.split("_")[0] for key in list(feat_dict.keys())])
 
-    train_env = R2RBatch(feat_dict, batch_size=args.batchSize, splits=['train'], tokenizer=tok)
+    train_env = R2RBatch(feat_dict, batch_size=args.batchSize, splits=['train'], tokenizer=tok, dataset=args.dataset)
     from collections import OrderedDict
 
     val_env_names = ['val_unseen', 'val_seen']
@@ -438,7 +438,7 @@ def train_val_augment():
 
     # Create the training environment
     train_env = R2RBatch(feat_dict, batch_size=args.batchSize,
-                         splits=['train'], tokenizer=tok)
+                         splits=['train'], tokenizer=tok, dataset=args.dataset)
     aug_env   = R2RBatch(feat_dict, batch_size=args.batchSize,
                          splits=[aug_path], tokenizer=tok, name='aug')
 

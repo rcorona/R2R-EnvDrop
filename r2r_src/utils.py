@@ -47,7 +47,7 @@ def load_nav_graphs(scans):
     return graphs
 
 
-def load_datasets(splits):
+def load_datasets(splits, dataset='R2R'):
     """
 
     :param splits: A list of split.
@@ -68,7 +68,7 @@ def load_datasets(splits):
         # if split in ['train', 'val_seen', 'val_unseen', 'test',
         #              'val_unseen_half1', 'val_unseen_half2', 'val_seen_half1', 'val_seen_half2']:       # Add two halves for sanity check
         if "/" not in split:
-            with open('tasks/R2R/data/R2R_%s.json' % split) as f:
+            with open('tasks/R2R/data/%s_%s.json' % (dataset, split)) as f:
                 new_data = json.load(f)
         else:
             with open(split) as f:

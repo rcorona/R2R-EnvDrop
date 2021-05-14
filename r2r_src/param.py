@@ -20,6 +20,7 @@ class Param:
         self.parser.add_argument('--ignoreid', type=int, default=-100)
         self.parser.add_argument('--feature_size', type=int, default=2048)
         self.parser.add_argument("--loadOptim",action="store_const", default=False, const=True)
+        self.parser.add_argument("--dataset", type=str, help='Use R2R or R4R', choices=['R4R', 'R2R'], default='R2R')
 
         # Load the model from
         self.parser.add_argument("--speaker", default=None)

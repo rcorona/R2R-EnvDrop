@@ -5,7 +5,7 @@ import os
 import utils
 import model
 import torch.nn.functional as F
-
+from tqdm import tqdm
 
 class Speaker():
     env_actions = {
@@ -45,7 +45,9 @@ class Speaker():
         )
 
     def train(self, iters):
-        for i in range(iters):
+        
+
+        for i in tqdm(range(iters)):
             self.env.reset()
 
             self.encoder_optimizer.zero_grad()
